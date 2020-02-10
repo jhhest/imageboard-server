@@ -2,14 +2,17 @@ const express = require("express");
 
 const app = express();
 
+app.use(express.json())
 app.get("/", (req, res) => res.send("<h1>welcome to my server</h1>"));
 
 const port = process.env.PORT || 4000;
-app.listen(port, () => console.log(`
-
-Imageboard listening on port ${port}!
-
-`));
+app.listen(port, () =>
+  console.log(`
+/**
+ * Imageboard server listening on port ${port}! 
+ **/
+`)
+);
 // app.listen(port, () =>
 //   console.log(`
 // /**
@@ -22,4 +25,3 @@ Imageboard listening on port ${port}!
 // Create a new express server named app.
 // Declare a constant port equal to process.env.PORT or 4000.
 // Pass the port and a logging function to app.listen.
-
