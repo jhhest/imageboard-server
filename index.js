@@ -1,9 +1,10 @@
 const express = require("express");
-const db = require("./db")
+const db = require("./db");
+const Image = require("./image/model")
 const app = express();
 
-app.use(express.json())
-app.get("/", (req, res) => res.send("<h1>welcome to my server</h1>"));
+app.use(express.json());
+app.get("/", (req, res) => res.send("<h1>Imageboard Server</h1>"));
 
 const port = process.env.PORT || 4000;
 app.listen(port, () =>
