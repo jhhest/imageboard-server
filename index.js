@@ -1,9 +1,13 @@
 const express = require("express");
-const db = require("./db");
-const Image = require("./image/model")
-const app = express();
+const cors = require("cors");
+const logMiddleware = require("./middleWare/logMiddleware")
+const imageRouter = require("./image/router");
 
-app.use(express.json());
+const app = express();
+const corsMiddleware = cors();
+
+app.use(express.json(), imageRouter, logMiddleware);
+
 app.get("/", (req, res) => res.send("<h1>Imageboard Server</h1>"));
 
 const port = process.env.PORT || 4000;
